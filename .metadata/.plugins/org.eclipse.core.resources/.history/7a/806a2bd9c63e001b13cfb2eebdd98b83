@@ -1,0 +1,9 @@
+(deftemplate Info
+    (slot timespan)
+    (slot probability)
+    (slot chance))
+
+(defrule getTimeSpan
+    =>
+    (bind ?r (read))
+    (assert Info(timespan ?r)))

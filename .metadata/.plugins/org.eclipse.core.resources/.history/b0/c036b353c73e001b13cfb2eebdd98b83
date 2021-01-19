@@ -1,0 +1,10 @@
+(deftemplate Timespan (slot timespan))
+(deftemplate Probabiltiy (slot probability))
+(deftemplate Chance (slot chance))
+
+
+(defrule getTimeSpan
+    =>
+    (printout t "Enter timespan: ")
+    (bind ?r (read))
+    (assert Timespan(timespan ?r)))

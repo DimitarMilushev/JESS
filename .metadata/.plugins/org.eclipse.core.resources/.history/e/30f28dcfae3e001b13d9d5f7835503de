@@ -1,0 +1,28 @@
+;N as records of annual peak discharge
+;M as discharges with highest given rank	
+;p avg probablity of occureance
+;k times exceeds
+
+(defrule getTimeSpan
+    =>
+    (printout t "Enter period: ")
+    (bind ?r (read))
+    (assert (period ?r)))
+
+(defrule getAvgProbabilty
+    =>
+    (printout t "Average annual floods: ")
+    (bind ?r (read))
+    (assert (avgProb ?r)))
+
+(defrule getChanceExceed
+    =>
+    (printout t "Chance to exceed average annual floods: ")
+    (bind ?r (read))
+    (assert (chanceExceed ?r)))
+	
+
+(defrule print-factorial-timespan
+    (factorial period ?r)
+    =>
+    (printout t "The factorial is: " ?r crlf))

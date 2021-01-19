@@ -1,0 +1,17 @@
+;N as records of annual peak discharge
+;M as discharges with highest given rank	
+;p avg probablity of occureance
+;k times exceeds
+
+
+
+(deftemplate Info
+    (slot timespan)
+    (slot prob)
+    (slot chance))
+
+(assert (Info(timespan (bind ?t(read))) (prob (bind ?p(read))) (chance (bind ?c (read)))))
+(printout t "Please Enter: Timespan, Annual probability and Chance of exceeding annual probability.")
+(printout t ?t)
+(reset)
+(run)

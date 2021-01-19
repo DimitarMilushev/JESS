@@ -1,0 +1,6 @@
+(bind ?timespan)
+
+(defrule getTimeSpan
+    =>
+    (printout t "Enter timespan: ")
+    (bind ?timespan (read)))

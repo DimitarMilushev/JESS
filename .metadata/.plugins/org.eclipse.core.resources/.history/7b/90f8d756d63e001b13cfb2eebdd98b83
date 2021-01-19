@@ -1,0 +1,31 @@
+;N as records of annual peak discharge
+;M as discharges with highest given rank	
+;p avg probablity of occureance
+;k times exceeds
+
+(deftemplate Info
+    (slot timespan)
+    (slot prob)
+    (slot chance)
+    (slot facTimespan)
+    (slot facChance)
+    (slot facBoth))
+
+(assert (Info(timespan (bind ?t(read))) (prob (bind ?p(read))) (chance (bind ?c (read)))))
+
+(assert (number ?t))
+(defrule getF
+    (number ?x)
+    =>
+    (bind ?r 1)
+    (bind ?n ?x)
+    (while (> ?n 1)
+        (bind ?r (* ?r ?x))
+        (bind ?n (- ?n 1)))
+    (assert Info(facTimespan (bind ?ft ?r)))
+    (facts))
+
+(printout t (+ ?t ?c) crlf)
+(printout t ?ft)
+(reset)
+(run)

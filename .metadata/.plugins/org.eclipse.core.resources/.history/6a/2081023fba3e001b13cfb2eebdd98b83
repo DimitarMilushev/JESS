@@ -1,0 +1,50 @@
+;N as records of annual peak discharge
+;M as discharges with highest given rank	
+;p avg probablity of occureance
+;k times exceeds
+
+;(defglobal ?*timeSpan* = nil)
+;(defglobal ?*avgProbability* = nil)
+;(defglobal ?*chanceExceed* = nil)
+
+(deftemplate timeSpan
+    (slot period(default 0.0)))
+(deftemplate timesExceed
+    (slot chance(default 0.0)))
+(deftemplate avgProbability
+    (slot probability(default 0.0)))
+
+(deffunction getFactorial(?num)
+    (bind ?r 1)
+    (while (> ?n 1)
+      (bind ?r (* ?r ?num))
+      (bind ?num (- ?num 1)))
+    (return ?r))
+
+(defrule getTimeSpan
+    =>
+    (printout t "Enter period: ")
+    (bind ?r (read))
+    (assert timeSpan(period ?r)))
+
+(defrule getAvgProbabilty
+    =>
+    (printout t "Average annual floods: ")
+    (bind ?r (read))
+    (assert avgProbability(probability ?r)))
+
+
+(defrule getChanceExceed
+    =>
+    (printout t "Chance to exceed average annual floods: ")
+    (bind ?r (read))
+    (assert timesExceed(chance ?r)))
+
+(defrule printAll
+    =>
+    (printout t timeSpan(period) crlf)
+    (printout t avgProbability(probability) crlf)
+    (printout t timesExceed(chance) crlf))
+	
+(reset)
+(run)

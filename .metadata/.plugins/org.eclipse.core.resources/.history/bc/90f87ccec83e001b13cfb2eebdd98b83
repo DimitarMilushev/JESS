@@ -1,0 +1,2 @@
+(printout t "Enter timespan: ")
+(bind ?timespan (read))

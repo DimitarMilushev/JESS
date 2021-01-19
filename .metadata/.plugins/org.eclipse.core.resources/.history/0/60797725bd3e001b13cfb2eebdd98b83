@@ -1,0 +1,29 @@
+(deftemplate Timespan
+    (slot timespan))
+
+(deftemplate Probability
+    (slot probability))
+
+(deftemplate Chance
+    (slot chance))
+
+(defrule getTimeSpan
+    =>
+    (printout t "Enter timespan: ")
+    (bind ?r (read))
+    (assert Timespan(timespan ?r)))
+
+(defrule getProbability
+    =>
+    (printout t "Enter annual flood probability: ")
+    (bind ?r (read))
+    (assert Probability(probability ?r)))
+
+(defrule getChance
+    =>
+    (printout t "Enter chance of exceeding probability rate: ")
+    (bind ?r (read))
+    (assert Chance(chance ?r)))
+
+(reset)
+(run)

@@ -1,0 +1,25 @@
+(defglobal ?*timespan* = 0)
+(defglobal ?*probability* = 0)
+(defglobal ?*chance* = 0)
+
+
+(defrule getTimeSpan
+    =>
+    (printout t "Enter timespan: ")
+    (bind ?r (read))
+    (assert ?*timespan* ?r))
+
+(defrule getProbability
+    =>
+    (printout t "Enter annual flood probability: ")
+    (bind ?r (read))
+    (assert ?*probability* ?r))
+
+(defrule getChance
+    =>
+    (printout t "Enter chance of exceeding probability rate: ")
+    (bind ?r (read))
+    (assert ?*chance* ?r))
+
+(reset)
+(run)

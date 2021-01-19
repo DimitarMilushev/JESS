@@ -1,0 +1,14 @@
+(deftemplate Info
+    (slot timespan)
+    (slot prob))
+
+(printout t "Enter timespan: ")
+(assert (Info (timespan (bind ?t (read)))))
+
+(printout t "Enter annual probability: ")
+(assert (Info (prob (bind ?p (read)))))
+
+(bind ?result (- 1 (**(- 1 ?p) ?t)))
+(printout t (* ?result 10) "%")
+(reset)
+(run)

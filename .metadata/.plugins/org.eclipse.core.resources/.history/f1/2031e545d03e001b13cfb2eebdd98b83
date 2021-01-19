@@ -1,0 +1,27 @@
+;N as records of annual peak discharge
+;M as discharges with highest given rank	
+;p avg probablity of occureance
+;k times exceeds
+(do-backward-chaining factorial)
+
+
+(deftemplate Info
+    (slot timespan)
+    (slot prob)
+    (slot chance))
+
+(assert (Info(timespan (bind ?t(read))) (prob (bind ?p(read))) (chance (bind ?c (read)))))
+
+(deffunction getFactorial(?num)
+    (bind ?x ?num)
+    (bind ?r 1)
+    (while (> ?x 1)
+        (bind ?r(* ?r ?num))
+        (bind ?x(- ?x 1)))
+    (return ?r))
+
+(getFactorial 5)
+
+(printout t ?t)
+(reset)
+(run)

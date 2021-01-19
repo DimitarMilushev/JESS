@@ -1,0 +1,28 @@
+;N as records of annual peak discharge
+;M as discharges with highest given rank	
+;p avg probablity of occureance
+;k times exceeds
+
+(defglobal ?*timeSpan* = nil)
+(defglobal ?*avgProbability* = nil)
+(defglobal ?*chanceExceed* = nil)
+
+
+(defrule getAvgProbabilty
+    =>
+    (printout t "Average annual floods: ")
+    (bind ?*avgProbability* (read)))
+
+
+(defrule getChanceExceed
+    =>
+    (printout t "Chance to exceed average annual floods: ")
+    (bind ?*chanceExceed* (read)))
+	
+(defrule getTimeSpan
+    =>
+    (printout t "Enter period: ")
+    (bind ?*timeSpan* (read)))
+
+(reset)
+(run)

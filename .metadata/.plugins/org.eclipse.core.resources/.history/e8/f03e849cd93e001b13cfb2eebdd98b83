@@ -1,0 +1,22 @@
+(printout t "Enter timespan: ")
+(defglobal ?*timespan* = (read))
+
+(printout t ?*timespan*)
+
+(printout t "Enter annual probability: ")
+(defglobal ?*probability* = (read))
+
+(printout t "Enter chance of exceeding probability: ")
+(defglobal ?*chance* = (read))
+
+(assert (numbers 4 5 6))
+(defrule Math
+    (numbers ?x ?y ?z)
+    =>
+    (assert (answer-plus (+ ?x(/ ?y ?z))))
+    (facts))
+
+
+
+(reset)
+(run)

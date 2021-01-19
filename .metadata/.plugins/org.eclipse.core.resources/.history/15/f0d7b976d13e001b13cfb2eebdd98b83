@@ -1,0 +1,27 @@
+;N as records of annual peak discharge
+;M as discharges with highest given rank	
+;p avg probablity of occureance
+;k times exceeds
+(do-backward-chaining factorial)
+
+
+(deftemplate Info
+    (slot timespan)
+    (slot prob)
+    (slot chance))
+
+(assert (Info(timespan (bind ?t(read))) (prob (bind ?p(read))) (chance (bind ?c (read)))))
+
+(printout t ?t)
+(defrule getFac
+    =>
+    (bind ?r 1)
+    (bind ?n ?t)
+    (while (> ?n 1)
+        (bind ?r (* ?r ?n))
+        (bind ?n (- ?n 1)))
+    (bind ?t ?r))
+
+(printout t ?t)
+(reset)
+(run)

@@ -1,0 +1,17 @@
+;N as records of annual peak discharge
+;M as discharges with highest given rank	
+;p avg probablity of occureance
+;k times exceeds
+
+
+
+(deftemplate Info
+    (slot timespan)
+    (slot prob)
+    (slot chance))
+
+(assert (Info(timespan (bind ?t(read))) (prob (bind ?p(read))) (chance (bind ?c (read)))))
+
+(printout t (Info(timespan ?t)))
+(reset)
+(run)

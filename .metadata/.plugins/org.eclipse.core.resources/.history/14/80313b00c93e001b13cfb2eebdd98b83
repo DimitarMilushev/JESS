@@ -1,0 +1,15 @@
+(printout t "Enter timespan: ")
+(bind ?timespan (read))
+
+(printout t "Enter annual probability: ")
+(bind ?probability (read))
+
+(printout t "Enter chance of exceeding probability: ")
+(bind ?chance (read))
+
+(defrule calculateResult
+    =>
+    (printout t (+ ?timespan ?probability)))
+
+(reset)
+(run)

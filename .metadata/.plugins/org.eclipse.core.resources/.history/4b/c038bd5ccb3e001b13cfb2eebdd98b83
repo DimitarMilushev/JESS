@@ -1,0 +1,16 @@
+(printout t "Enter timespan: ")
+(defglobal ?*timespan* = (read))
+
+(printout t "Enter annual probability: ")
+(defglobal ?*probability* = (read))
+
+(printout t "Enter chance of exceeding probability: ")
+(defglobal ?*chance* = (read))
+
+(defrule calculateResult
+    =>
+    (bind ?x (+ ?timespan ?probability))
+    (printout t ?x))
+
+(reset)
+(run)
